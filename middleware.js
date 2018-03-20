@@ -2,7 +2,6 @@
 import middleware from '@@/.nuxt/middleware'
 
 middleware['nuxt-custom-headers'] = context => {
-
   if (process.server) {
     const headers = [].concat.apply([], (context.route.matched.map(({ components }) => Object.values(components)))).reduce((headers, component) => {
       if (component.options && component.options.headers) {

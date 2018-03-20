@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinLG/nuxt-custom-headers.git"
+  },
   "keywords": [
     "Nuxt.js",
     "Vue.js",
@@ -13,5 +17,9 @@
     "Javascript"
   ],
   "author": "Martin Le Guillou",
-  "license": "ISC"
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/MartinLG/nuxt-custom-headers/issues"
+  },
+  "homepage": "https://github.com/MartinLG/nuxt-custom-headers#readme"
 }
