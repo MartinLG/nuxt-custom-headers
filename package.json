@@ -1,0 +1,17 @@
+{
+  "name": "nuxt-custom-headers",
+  "version": "1.0.0",
+  "description": "Nuxt module to add custom headers to SSR rendered pages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nuxt.js",
+    "Vue.js",
+    "SSR",
+    "Javascript"
+  ],
+  "author": "Martin Le Guillou",
+  "license": "ISC"
+}
