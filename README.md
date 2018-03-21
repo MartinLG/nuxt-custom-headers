@@ -17,10 +17,16 @@ yarn add nuxt-custom-headers
 ```javascript
 {
   modules: [
+    // Simple usage, headers function name is 'httpHeaders' by default
     'nuxt-custom-headers',
+
+    // With custom headers function name (in case of function name collision with another module)
+    ['nuxt-custom-headers', { functionName: 'myCustomFunctionName' }],
   ]
 }
 ```
+
+> **Note**: you can also override the ```functionName``` parameter with the ```NUXT_CUSTOM_HEADERS_FUNCTION``` environment variable.
 
 ## Add headers to your pages
 
@@ -39,7 +45,7 @@ Example:
 <script>
 export default {
   name: 'MyPage',
-  headers: () => ({
+  httpHeaders: () => ({
     'Cache-Control': 'max-age=60, s-maxage=90, public',
     'X-My-Header': 'Anything you could need'
   })

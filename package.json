@@ -1,6 +1,6 @@
 {
   "name": "nuxt-custom-headers",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Nuxt module to add custom headers to SSR rendered pages.",
   "main": "index.js",
   "scripts": {
