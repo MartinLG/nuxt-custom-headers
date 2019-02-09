@@ -1,6 +1,8 @@
 # nuxt-custom-headers
 [Nuxt](https://nuxtjs.org) module to add custom headers to SSR rendered pages.
 
+This module only impacts the server-side rendered pages of **universal applications**.
+
 ## Setup
 
 * Add the nuxt-custom-headers package to your dependencies with npm or yarn:
