@@ -32,7 +32,7 @@ yarn add nuxt-custom-headers
 
 ## Add headers to your pages
 
-To add headers to a page, you need to implement a ```headers``` function in the page component.
+To add headers to a page, you need to implement a ```httpHeaders``` function in the page component.
 This function must return a list of headers.
 
 Example:
@@ -50,6 +50,29 @@ export default {
   httpHeaders: () => ({
     'Cache-Control': 'max-age=60, s-maxage=90, public',
     'X-My-Header': 'Anything you could need'
+  })
+}
+</script>
+```
+
+### Use Nuxt context
+
+You can use the Nuxt context in the ```httpHeaders``` to generate headers based on the router or any other context related data.
+
+Example:
+
+```javascript
+<template>
+  <div>
+    <p>This is an awesome page with context related cache.</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MyPage',
+  httpHeaders: (context) => ({
+    'Cache-Control': `max-age=${context.app.router.currentRoute.meta.cache}, public`
   })
 }
 </script>
