@@ -2,17 +2,18 @@
 import middleware from '@@/.nuxt/middleware'
 
 middleware['nuxt-custom-headers'] = context => {
-  if (process.server) {
-    const headers = [].concat.apply([], (context.route.matched.map(({ components }) => Object.values(components)))).reduce((headers, component) => {
-      if (component.options && component.options[context.env.NUXT_CUSTOM_HEADERS_FUNCTION]) {
-        Object.assign(headers, component.options[context.env.NUXT_CUSTOM_HEADERS_FUNCTION](context))
+  if (process.server && !process.static) {
+    const headers = context.route.matched
+    .reduce((acc, { components }) => acc.concat(Object.values(components)), [])
+    .reduce((acc, { options = {} }) => {
+      if (options[context.env.NUXT_CUSTOM_HEADERS_FUNCTION]) {
+        Object.assign(acc, options[context.env.NUXT_CUSTOM_HEADERS_FUNCTION](context));
       }
 
-      return headers
+      return acc;
     }, {})
 
-    Object.keys(headers).map(function(header) {
-      context.res.setHeader(header, headers[header])
-    });
+    Object.entries(headers)
+    .forEach(([header, value]) => context.res.setHeader(header, value));
   }
 }
